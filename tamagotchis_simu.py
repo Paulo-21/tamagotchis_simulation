@@ -36,8 +36,8 @@ def manger_avec(n):
         all_tamag[n]["faim"] += 50
         croquette_dispo = croquette_dispo -1
 day_start = time.perf_counter()
+tic = time.perf_counter()
 while True:
-    tic = time.perf_counter()
     #1.
     print_state()
     s = input("Command : ").split()
@@ -53,6 +53,8 @@ while True:
             manger_avec(n)
         elif cmd == "jouer" or cmd == "j":
             jouer_avec(n)
+    if int(time.perf_counter()-tic) < 1:
+        continue
     tac = time.perf_counter()
     
     #3.
@@ -88,5 +90,6 @@ while True:
     if is_lost():
         print("YOU LOST")
         break
+    tic = time.perf_counter()
     
     
