@@ -23,7 +23,7 @@ def is_lost():
             return True
     return False
 def print_state():
-    print("TIME DAY : ", int(time.perf_counter()-day_start) , " / ", 3*60)
+    print("TIME DAY : ", int(time.perf_counter()-day_start) , " / ", 3*60, " sec")
     print("CROQUETTE : ", croquette_dispo)
     for index, tama in enumerate(all_tamag):
         print("Tamagotchi n°", index+1, " : Santé : ", tama["santé"], ", Faim : ",tama["faim"] ," Ennui : ", tama["ennui"] )
@@ -47,8 +47,10 @@ while True:
         n = int(s[1])-1
         if n < 0 or n > 4 :
             cmd = None
+            print("Tamagotchis n° entre 1 et 5")
+        else :
+            cmd = cmd.lower()
         #2.
-        cmd = cmd.lower()
         if cmd == "manger" or cmd == "m":
             manger_avec(n)
         elif cmd == "jouer" or cmd == "j":
